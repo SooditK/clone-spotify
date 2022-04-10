@@ -36,6 +36,25 @@ const navMenu = [
   },
 ];
 
+const musicMenu = [
+  {
+    name: "Create Playlist",
+    icon: MdPlaylistAdd,
+    route: "/",
+  },
+  {
+    name: "Favorites",
+    icon: MdFavorite,
+    route: "/favorite",
+  },
+];
+
+const playlist = new Array(10).fill(0).map((_, i) => ({
+  name: `Playlist ${i + 1}`,
+  icon: MdPlaylistAdd,
+  route: "/",
+}));
+
 const Sidebar = () => {
   return (
     <Box
@@ -45,13 +64,55 @@ const Sidebar = () => {
       paddingX="5px"
       color="gray"
     >
-      <Box paddingY="20px">
+      <Box paddingY="20px" height="100%">
         <Box width="120px" marginBottom="20px" paddingX="20px">
           <NextImage src="/logo.svg" height="60" width="120" alt="logo" />
         </Box>
         <Box marginBottom="20px">
           <List spacing="2">
             {navMenu.map((item, index) => (
+              <ListItem paddingX="20px" fontSize="16px" key={index}>
+                <LinkBox>
+                  <NextLink href={item.route} passHref>
+                    <LinkOverlay>
+                      <ListIcon
+                        as={item.icon}
+                        color="white"
+                        marginRight="20px"
+                      />
+                      {item.name}
+                    </LinkOverlay>
+                  </NextLink>
+                </LinkBox>
+              </ListItem>
+            ))}
+          </List>
+        </Box>
+        <Box marginY="20px">
+          <List spacing="2">
+            {musicMenu.map((item, index) => (
+              <ListItem paddingX="20px" fontSize="16px" key={index}>
+                <LinkBox>
+                  <NextLink href={item.route} passHref>
+                    <LinkOverlay>
+                      <ListIcon
+                        as={item.icon}
+                        color="white"
+                        marginRight="20px"
+                      />
+                      {item.name}
+                    </LinkOverlay>
+                  </NextLink>
+                </LinkBox>
+              </ListItem>
+            ))}
+          </List>
+        </Box>
+
+        <Divider color="gray.700" />
+        <Box height="66%" overflowY="auto" paddingY="20px">
+          <List spacing="2">
+            {playlist.map((item, index) => (
               <ListItem paddingX="20px" fontSize="16px" key={index}>
                 <LinkBox>
                   <NextLink href={item.route} passHref>
