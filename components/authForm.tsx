@@ -6,7 +6,7 @@ import React, { FC } from "react";
 import { useSWRConfig } from "swr";
 import { auth } from "../lib/mutations";
 
-const AuthForm: FC<{ mode: "singin" | "singup" }> = ({ mode }) => {
+const AuthForm: FC<{ mode: "signin" | "singup" }> = ({ mode }) => {
   const router = useRouter();
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
@@ -42,7 +42,7 @@ const AuthForm: FC<{ mode: "singin" | "singup" }> = ({ mode }) => {
               placeholder="Password"
             />
             <Button type="submit" bg="green.500" isLoading={loading}>
-              {mode === "singin" ? "Sign in" : "Sign up"}
+              {mode === "signin" ? "Sign in" : "Sign up"}
             </Button>
           </form>
         </Box>
