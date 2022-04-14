@@ -25,3 +25,8 @@ export const validateRoutes = (handler) => {
     return res.status(401).json({ message: "No token" });
   };
 };
+
+export const validateToken = (token) => {
+  const user = jwt.verify(token, process.env.JWT_SECRET);
+  return user;
+};

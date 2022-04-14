@@ -36,6 +36,7 @@ specifiers:
   react-howler: ^5.2.0
   react-icons: ^4.3.1
   reset-css: ^5.0.1
+  superjson: ^1.8.1
   swr: ^1.1.1
   ts-node: ^10.4.0
   typescript: ^4.6.3
@@ -60,6 +61,7 @@ dependencies:
   react-howler: 5.2.0
   react-icons: 4.3.1_react@18.0.0
   reset-css: 5.0.1
+  superjson: 1.8.1
   swr: 1.2.2_react@18.0.0
 
 devDependencies:
@@ -67,7 +69,7 @@ devDependencies:
   '@types/react': 17.0.44
   '@typescript-eslint/eslint-plugin': 5.18.0_0dd9be2ba5ed9805045f3fec8be848f5
   '@typescript-eslint/parser': 5.18.0_eslint@8.13.0+typescript@4.6.3
-  babel-plugin-superjson-next: 0.4.3_next@12.1.4
+  babel-plugin-superjson-next: 0.4.3_next@12.1.4+superjson@1.8.1
   eslint: 8.13.0
   eslint-config-airbnb: 19.0.4_98153b3cb1eb5f851029189077e45ffc
   eslint-config-next: 12.1.4_57d845948e13b1864c5a396265280d12
@@ -1767,7 +1769,7 @@ packages:
       resolve: 1.22.0
     dev: false
 
-  /babel-plugin-superjson-next/0.4.3_next@12.1.4:
+  /babel-plugin-superjson-next/0.4.3_next@12.1.4+superjson@1.8.1:
     resolution: {integrity: sha512-wfPsTPnEn1YaEkmaoomN4Z/Hm6nWVWFkASdetP/Ju2aPz/8XguAJwuThZIBH9dMTtXnyGXnbJufPQ0wRha0QcA==}
     engines: {node: '>=10'}
     peerDependencies:
@@ -1778,6 +1780,7 @@ packages:
       '@babel/types': 7.17.0
       hoist-non-react-statics: 3.3.2
       next: 12.1.4_react-dom@18.0.0+react@18.0.0
+      superjson: 1.8.1
     dev: true
 
   /balanced-match/1.0.2:
@@ -3020,6 +3023,10 @@ packages:
       path-exists: 3.0.0
     dev: true
 
+  /lodash.clonedeep/4.5.0:
+    resolution: {integrity: sha1-4j8/nE+Pvd6HJSnBBxhXoIblzO8=}
+    dev: false
+
   /lodash.includes/4.3.0:
     resolution: {integrity: sha1-YLuYqHy5I8aMoeUTJUgzFISfVT8=}
     dev: false
@@ -3771,6 +3778,16 @@ packages:
 
   /stylis/4.0.13:
     resolution: {integrity: sha512-xGPXiFVl4YED9Jh7Euv2V220mriG9u4B2TA6Ybjc1catrstKD2PpIdU3U0RKpkVBC2EhmL/F0sPCr9vrFTNRag==}
+    dev: false
+
+  /superjson/1.8.1:
+    resolution: {integrity: sha512-RaBKdbsYj29Ky+XcdE11pJAyKXPrqiCV269koH2WAlpeHh/9qnK0ET84GiVWvnutiufyDolK/vS2jtdFYr341w==}
+    engines: {node: '>=10'}
+    dependencies:
+      debug: 4.3.4
+      lodash.clonedeep: 4.5.0
+    transitivePeerDependencies:
+      - supports-color
     dev: false
 
   /supports-color/5.5.0:

@@ -19,6 +19,7 @@ import {
 } from "react-icons/md";
 import { RiPlayListFill } from "react-icons/ri";
 import { usePlaylist } from "../lib/hooks";
+import { ReactChild, ReactFragment, ReactPortal, Key } from "react";
 
 const navMenu = [
   {
@@ -115,22 +116,30 @@ const Sidebar = () => {
         <Divider color="gray.700" />
         <Box height="66%" overflowY="auto" paddingY="20px">
           <List spacing="2">
-            {playlist.map((item, index) => (
-              <ListItem paddingX="20px" fontSize="16px" key={index}>
-                <LinkBox>
-                  <NextLink href={`${item.id}`} passHref>
-                    <LinkOverlay>
-                      <ListIcon
-                        as={RiPlayListFill}
-                        color="white"
-                        marginRight="20px"
-                      />
-                      {item.name}
-                    </LinkOverlay>
-                  </NextLink>
-                </LinkBox>
-              </ListItem>
-            ))}
+            {playlist.map(
+              (
+                item: {
+                  id: any;
+                  name: boolean | ReactChild | ReactFragment | ReactPortal;
+                },
+                index: Key
+              ) => (
+                <ListItem paddingX="20px" fontSize="16px" key={index}>
+                  <LinkBox>
+                    <NextLink href={`/playlist/${item.id}`} passHref>
+                      <LinkOverlay>
+                        <ListIcon
+                          as={RiPlayListFill}
+                          color="white"
+                          marginRight="20px"
+                        />
+                        {item.name}
+                      </LinkOverlay>
+                    </NextLink>
+                  </LinkBox>
+                </ListItem>
+              )
+            )}
           </List>
         </Box>
       </Box>
