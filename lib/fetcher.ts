@@ -1,19 +1,15 @@
-export default function fetcher(
-  url: string,
-  data: { email: string; password: string }
-) {
+export default function fetcher(url: string, data = undefined) {
   return fetch(`${window.location.origin}/api${url}`, {
-    method: data ? "POST" : "GET",
+    method: data ? 'POST' : 'GET',
+    credentials: 'include',
     headers: {
-      "Content-Type": "application/json",
-      Accept: "application/json",
+      'Content-Type': 'application/json',
     },
-    credentials: "include",
-    body: data ? JSON.stringify(data) : undefined,
+    body: JSON.stringify(data),
   }).then((res) => {
     if (res.status > 399 && res.status < 200) {
-      window.location.href = "/login";
+      throw new Error()
     }
-    return res.json();
-  });
+    return res.json()
+  })
 }

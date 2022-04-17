@@ -1,16 +1,13 @@
-import { validateRoutes } from "../../lib/auth";
-import prisma from "../../lib/prisma";
+import { validateRoute } from '../../lib/auth'
+import prisma from '../../lib/prisma'
 
-export default validateRoutes(async (req, res, user) => {
-  const playlistCount = await prisma.playlist.count({
+export default validateRoute(async (req, res, user) => {
+  const playlistsCount = await prisma.playlist.count({
     where: {
-      user: {
-        id: user.id,
-      },
+      userId: user.id,
     },
-  });
-  res.json({
-    user,
-    playlistCount,
-  });
-});
+  })
+
+  console.log(playlistsCount)
+  res.json({ ...user, playlistsCount })
+})

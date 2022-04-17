@@ -1,20 +1,21 @@
-import useSWR from "swr";
-import fetcher from "./fetcher";
+import useSWR from 'swr'
+import fetcher from './fetcher'
 
 export const useMe = () => {
-  const { data, error } = useSWR("/me", fetcher);
+  const { data, error } = useSWR('/me', fetcher)
+
   return {
     user: data,
-    isLoading: !error && !data,
+    isLoading: !data && !error,
     isError: error,
-  };
-};
+  }
+}
 
 export const usePlaylist = () => {
-  const { data, error } = useSWR("/playlist", fetcher);
+  const { data, error } = useSWR('/playlist', fetcher)
   return {
-    playlist: (data as any) || [],
-    isLoading: !error && !data,
+    playlists: (data as any) || [],
+    isLoading: !data && !error,
     isError: error,
-  };
-};
+  }
+}
